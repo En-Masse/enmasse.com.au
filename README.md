@@ -1,4 +1,4 @@
-# EnMasse.com.au
+# [EnMasse.com.au](http://enmasse.com.au)
 
 A Gatsby based [AMP](https://www.ampproject.org) website and blog
 
