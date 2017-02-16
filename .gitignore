@@ -2,6 +2,7 @@
 
 public/
 .deploy*/
+.gatsby-context.js
 
 ######################
 ###### GENERATED #####
