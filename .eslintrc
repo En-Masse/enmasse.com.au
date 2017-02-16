@@ -1,0 +1,17 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+        "semi": [2, "never"],
+        "react/jsx-no-bind": [2, {"ignoreRefs": true, "allowArrowFunctions": false}],
+        "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+        "linebreak-style": ["off"],
+        "max-len": [2, {"code": 1000}],
+        "eol-last": [2,"never"],
+        "object-curly-spacing": ["error", "never"],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": false, "optionalDependencies": false, "peerDependencies": false}]
+    },
+  "settings": {
+    "import/core-modules": [ "react", "react-router", "gatsby-helpers", "config" ]
+  }
+}
