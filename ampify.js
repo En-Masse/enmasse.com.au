@@ -43,7 +43,7 @@ const addAmpVersionLink = function(html, filePath) {
   const urlPath = filePath.replace(inputDir, '');
 
   // Create the URL for the amp version
-  let ampVersionUrl = `/${outputDir}${urlPath}` 
+  let ampVersionUrl = `/${outputDir}${urlPath}`
 
   // Remove the index.html portion as it's uneeded
   ampVersionUrl = ampVersionUrl.substring(0, ampVersionUrl.lastIndexOf("/")) + '/';
@@ -64,7 +64,7 @@ const ampify = function(html, filePath) {
   const tags = {
     amp: ['img', 'video']
   };
-  
+
   // Load the html so we can manipulate it with jQuery syntax on the server
   $ = cheerio.load(html, {
     normalizeWhitespace: false,
@@ -75,7 +75,7 @@ const ampify = function(html, filePath) {
   });
 
   round = function(numb) { return Math.round(numb / 5) * 5; }
-  
+
   /**************************************************************************************
    * GROUNDWORK
    *************************************************************************************/
@@ -119,9 +119,8 @@ const ampify = function(html, filePath) {
    *************************************************************************************/
   // We are using Sass so we need to get each of the styles we need for the amp version of the pages
   // and compile it to minified sass.
-  
-  var css = sass.renderSync({file: 'css/zenburn.css', outputStyle: 'compressed'}).css.toString() +
-            sass.renderSync({file: 'css/amponly.scss', outputStyle: 'compressed'}).css.toString();
+
+  var css = sass.renderSync({file: 'css/amponly.scss', outputStyle: 'compressed'}).css.toString()
 
   // Remove our styles and add them to the css we are going to put in the custom amp
   // style element
@@ -145,14 +144,14 @@ const ampify = function(html, filePath) {
   $('link[rel=stylesheet]').each(function() {
       $(this).remove();
   });
-  
+
   // Add any needed fonts
   $("head").append($('<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700%2C300%2C800&ver=4.6.1" />'));
 
   // remove style attributes from everything. No inline styles with amp
   $( "*" ).removeAttr('style');
 
-  
+
   /**************************************************************************************
    * IMAGES
    *************************************************************************************/
@@ -162,7 +161,7 @@ const ampify = function(html, filePath) {
     const src = $(this).attr('src');
     let width;
     let height;
-    
+
     // if the image is a URL we need to get that data and get the size of that image
     if (src.includes('//')) {
       let imageUrl = src;
@@ -171,14 +170,14 @@ const ampify = function(html, filePath) {
       if(src.startsWith('//')) {
         imageUrl = `http:${src}` ;
       }
-      
+
       // To save build time, we're going to preset some of the values
       // that we already know.
       if($(this).hasClass('author-img')) {
         width = 50;
         height = 50;
       // If not precomputed, we will need to get that data and get the image size
-      } else { 
+      } else {
         const response = request('GET', imageUrl);
 
         if (response.statusCode === 200) {
@@ -205,7 +204,7 @@ const ampify = function(html, filePath) {
 
         width = size.width;
         height = size.height;
-        
+
         // For images that are relative to the page they are on, we need to add the
         // relative path to the domain root, otherwise amp will freak out since we aren't
         // copying images, just HTML
@@ -216,7 +215,7 @@ const ampify = function(html, filePath) {
         }
       }
     };
-    
+
     // If width and height were set, add it to the image
     if(width && height) {
       $(this).attr({
@@ -237,7 +236,7 @@ const ampify = function(html, filePath) {
   $(tags.amp.join(',')).each(function() {
     this.name = 'amp-' + this.name;
   });
-  
+
   // Set the layouts for all the images
   $('.main-pane amp-img, .page amp-img').each(function(){
     if($(this).attr('data-layout')) {
@@ -292,7 +291,7 @@ recursive(inputDir, ['amp'], function (err, files) {
   // Remove amp dir before we rebuild it
   try {
     rmdir.sync(`${process.cwd()}/${inputDir}/${outputDir}`);
-  } 
+  }
   catch(err) {
     console.log(err);
   }
@@ -304,7 +303,7 @@ recursive(inputDir, ['amp'], function (err, files) {
 
     // Need to make sure the amp versions of files are in the amp dir
     const newFileLocation = fileToConvert.replace(`${inputDir}/`, `${inputDir}/${outputDir}/`);
-    
+
     // Create the directory if it doesn't exist
     const newDir = newFileLocation.substring(0, newFileLocation.lastIndexOf("/"));
     if (!fs.existsSync(newDir)){
