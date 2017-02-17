@@ -6,8 +6,6 @@ import { rhythm } from 'utils/typography'
 import { config } from 'config'
 import Bio from 'components/Bio'
 
-import '../css/zenburn.css'
-
 class MarkdownWrapper extends React.Component {
   render () {
     const { route } = this.props
