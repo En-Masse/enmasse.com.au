@@ -3,7 +3,6 @@ import {Link} from 'react-router'
 import {Container} from 'react-responsive-grid'
 import {prefixLink} from 'gatsby-helpers'
 import {config} from 'config'
-import {rhythm, scale} from '../utils/typography'
 import Header from '../components/Header'
 
 class Template extends React.Component {
@@ -36,12 +35,7 @@ class Template extends React.Component {
       // )
     // }
     return (
-      <Container
-        style={{
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
+      <Container>
         {children}
       </Container>
     )
