@@ -1,6 +1,0 @@
----
-path: /test
----
-# Test
-
-Awesome

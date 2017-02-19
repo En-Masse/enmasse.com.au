@@ -4,51 +4,37 @@ import {Container} from 'react-responsive-grid'
 import {prefixLink} from 'gatsby-helpers'
 import {config} from 'config'
 import {rhythm, scale} from '../utils/typography'
+import Header from '../components/Header'
 
 class Template extends React.Component {
   render() {
     const {location, children} = this.props
-    let header
-    if (location.pathname === prefixLink('/')) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }} to={prefixLink('/')}
-          >
-            {config.blogTitle}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }} to={prefixLink('/')}
-          >
-            {config.blogTitle}
-          </Link>
-        </h3>
-      )
-    }
+    // let header
+    // if (location.pathname === prefixLink('/')) {
+    //   header = (
+    //     <h1
+    //       style={{
+    //         ...scale(1.5),
+    //         marginBottom: rhythm(1.5),
+    //         marginTop: 0,
+    //       }}
+    //     >
+    //       <Link
+    //         style={{
+    //           boxShadow: 'none',
+    //           textDecoration: 'none',
+    //           color: 'inherit',
+    //         }} to={prefixLink('/')}
+    //       >
+    //         {config.blogTitle}
+    //       </Link>
+    //     </h1>
+    //   )
+    // } else {
+      // header = (
+      //   <Header></Header>
+      // )
+    // }
     return (
       <Container
         style={{
@@ -56,7 +42,7 @@ class Template extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        {header}
+
         {children}
       </Container>
     )

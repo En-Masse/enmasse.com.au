@@ -5,14 +5,18 @@ import ReadNext from '../components/ReadNext'
 import {rhythm} from 'utils/typography'
 import {config} from 'config'
 import Bio from 'components/Bio'
+import Header from 'components/Header'
 
 class MarkdownWrapper extends React.Component {
   render() {
     const {route} = this.props
     const post = route.page.data
-
+    // console.log(this.props)
+    // console.log(this.props.route.pages)
+    // console.log(config)
     return (
       <div className="markdown">
+        <Header pages={this.props.route.pages} />
         <Helmet
           title={`${post.title} | ${config.blogTitle}`}
         />
