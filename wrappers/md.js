@@ -5,6 +5,8 @@ import ReadNext from '../components/ReadNext'
 import {config} from 'config'
 import Header from 'components/Header'
 
+import '../css/styles.scss'
+
 class MarkdownWrapper extends React.Component {
   render() {
     const {route} = this.props
