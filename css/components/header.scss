@@ -32,6 +32,16 @@ header {
     }
   }
   h2 {
-
+    &:before {
+      content: " ";
+      display: block;
+      width: 8%;
+      height: 3px;
+      background-color: $white;
+      margin-bottom: 15px;
+    }
+    text-transform: uppercase;
+    color: $white;
+    font-size: 29px;
   }
 }

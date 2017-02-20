@@ -31,6 +31,7 @@ $column-margin: 4% !default; // space between columns
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 @import "../node_modules/skeleton-scss/scss/base/normalize";
+@import "../node_modules/include-media/dist/include-media";
 @import "mixins/flexbox";
 
 // Componenet Imports
