@@ -21,8 +21,13 @@ $total-columns: 12 !default;
 $column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
 $column-margin: 4% !default; // space between columns
 
-// Imports
+// Mixins
 //––––––––––––––––––––––––––––––––––––––––––––––––––
 
 @import "../node_modules/skeleton-scss/scss/base/normalize";
-@import "../node_modules/skeleton-scss/scss/modules/grid";
+@import "mixins/flexbox";
+
+// Componenet Imports
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+@import "components/header";
