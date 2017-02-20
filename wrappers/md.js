@@ -1,43 +1,42 @@
 import React from 'react'
-import moment from 'moment'
 import Helmet from 'react-helmet'
-import ReadNext from '../components/ReadNext'
 import {config} from 'config'
-import Header from 'components/Header'
+import ReadNext from '../components/ReadNext'
+import Header from '../components/Header'
 
 import '../css/styles.scss'
 
-class MarkdownWrapper extends React.Component {
-  render() {
-    const {route} = this.props
-    const post = route.page.data
-    // console.log(this.props)
-    // console.log(this.props.route.pages)
-    // console.log(config)
-    return (
-      <div className="markdown">
-        <Header pages={this.props.route.pages} />
-        <Helmet
-          title={`${post.title} | ${config.blogTitle}`}
-        />
-        <h1 style={{marginTop: 0}}>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{__html: post.body}} />
-        <em
-          style={{
-            display: 'block',
-          }}
-        >
-          Posted {moment(post.date).format('MMMM D, YYYY')}
-        </em>
-        <hr />
-        <ReadNext post={post} pages={route.pages} />
-      </div>
-    )
+const MarkdownWrapper = (props) => {
+  const {route} = props
+  const post = route.page.data
+  switch (post.layout) {
+    case 'page':
+      return (
+        <div className="markdown">
+          <Header pages={props.route.pages} />
+          <Helmet
+            title={`${post.title} | ${config.blogTitle}`}
+          />
+          <h1 style={{marginTop: 0}}>{post.title}</h1>
+          <div dangerouslySetInnerHTML={{__html: post.body}} />
+        </div>
+      )
+    default:
+      return (
+        <div className="markdown">
+          <div dangerouslySetInnerHTML={{__html: post.body}} />
+          <ReadNext post={post} pages={route.pages} />
+        </div>
+      )
   }
 }
 
 MarkdownWrapper.propTypes = {
-  route: React.PropTypes.object,
+  route: React.PropTypes.shape,
+}
+
+MarkdownWrapper.defaultProps = {
+  route: '/',
 }
 
 export default MarkdownWrapper
