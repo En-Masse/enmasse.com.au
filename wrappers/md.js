@@ -32,11 +32,11 @@ const MarkdownWrapper = (props) => {
 }
 
 MarkdownWrapper.propTypes = {
-  route: React.PropTypes.shape,
-}
-
-MarkdownWrapper.defaultProps = {
-  route: '/',
+  route: React.PropTypes.shape({
+    pages: React.PropTypes.array,
+    page: React.PropTypes.object,
+    templates: React.PropTypes.array,
+  }).isRequired,
 }
 
 export default MarkdownWrapper
