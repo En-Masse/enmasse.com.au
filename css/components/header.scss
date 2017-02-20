@@ -1,12 +1,16 @@
 header {
-  @include flexbox();
-  a+h1 {
-    
-  }
-  a {
-    @include flex();
-    list-style: none;
-    text-align: center;
-    text-transform: uppercase;
+  background-color: $blue;
+  .navbar {
+    @include flexbox();
+    a>h1 {
+    }
+    a {
+      @include flex();
+      list-style: none;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $white;
+    }
   }
 }
