@@ -13,7 +13,7 @@ const MarkdownWrapper = (props) => {
     case 'page':
       return (
         <div className="markdown">
-          <Header pages={props.route.pages} />
+          <Header post={post} />
           <Helmet
             title={`${post.title} | ${config.blogTitle}`}
           />

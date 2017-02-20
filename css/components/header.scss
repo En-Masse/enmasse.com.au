@@ -1,12 +1,37 @@
 header {
-  @include flexbox();
-  a+h1 {
-    
+  padding: 40px 0;
+  background-color: $blue;
+  .navigation {
+    @include flexbox();
+    a+h1 {
+
+    }
+    a {
+      @include flex();
+      color: $white;
+      text-decoration: none;
+      list-style: none;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      padding: 10px 0 0 0;
+      vertical-align: middle;
+      h1 {
+        margin: 0;
+        text-indent: -9999px;
+        width: 165px;
+        height: 30px;
+        display: block;
+      }
+      &:last-child {
+        margin-bottom: 2px;
+        padding-top: 8px;
+        border: 2px solid $white;
+      }
+    }
   }
-  a {
-    @include flex();
-    list-style: none;
-    text-align: center;
-    text-transform: uppercase;
+  h2 {
+
   }
 }

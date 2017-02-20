@@ -1,8 +1,8 @@
 ---
 path: /
 layout: page
+title: Changing Behaviours
 ---
-# Changing Behaviours
 
 En Masse is a behaviour change company.  We deliver programs that build positive results in the areas of mental health and wellbeing, workplace culture, productivity, values and ethics, equal opportunity and psychological health and safety.
 
