@@ -7,7 +7,7 @@ const BUILD_TIME = new Date().getTime()
 let stylesStr
 if (process.env.NODE_ENV === 'production') {
   try {
-    stylesStr = require('!raw-loader!./public/styles.css')
+    stylesStr = require('!raw!./public/styles.css')
   } catch (e) {
     console.log(e)
   }
