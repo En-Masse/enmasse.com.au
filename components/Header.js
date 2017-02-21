@@ -35,19 +35,19 @@ class Header extends Component {
         </Link>
         <button className={`navToggle active-${navOpen}`} onClick={this.navToggle}><span /></button>
         <div className={`navigation navopen-${navOpen}`}>
-          <Link to={prefixLink('/about/')}>
+          <Link to={prefixLink('/about/')} onClick={this.navToggle}>
             About
           </Link>
-          <Link to={prefixLink('/clients/')}>
+          <Link to={prefixLink('/clients/')} onClick={this.navToggle}>
             Clients
           </Link>
-          <Link to={prefixLink('/services/')}>
+          <Link to={prefixLink('/services/')} onClick={this.navToggle}>
             Services
           </Link>
-          <Link to={prefixLink('/blog/')}>
+          <Link to={prefixLink('/blog/')} onClick={this.navToggle}>
             Blog
           </Link>
-          <Link to={prefixLink('/contact/')}>
+          <Link to={prefixLink('/contact/')} onClick={this.navToggle}>
             Enquiries
           </Link>
         </div>
