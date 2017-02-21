@@ -27,6 +27,10 @@ const Header = (props) => {
         </Link>
       </div>
       <h2>{post.title}</h2>
+      <p className="context" dangerouslySetInnerHTML={{__html: post.context}} />
+      <Link className="main-link" to={prefixLink(post.link)}>
+        {post.linkText}
+      </Link>
     </header>
   )
 }
@@ -37,6 +41,9 @@ Header.propTypes = {
     layout: React.PropTypes.string,
     title: React.PropTypes.string,
     body: React.PropTypes.string,
+    context: React.PropTypes.string,
+    link: React.PropTypes.string,
+    linkText: React.PropTypes.string,
   }).isRequired,
 }
 

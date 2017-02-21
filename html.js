@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {prefixLink} from 'gatsby-helpers'
-import stylesheet from './public/styles.css'
+// import stylesheet from './public/styles.css'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -14,10 +14,10 @@ const html = () => ({
     const {body} = this.props
     const head = Helmet.rewind()
 
-    let css
-    if (process.env.NODE_ENV === 'production') {
-      css = <style dangerouslySetInnerHTML={{__html: stylesheet}} />
-    }
+    // let css
+    // if (process.env.NODE_ENV === 'production') {
+    //   css = <style dangerouslySetInnerHTML={{__html: stylesheet}} />
+    // }
 
     return (
       <html lang="en">
@@ -30,10 +30,9 @@ const html = () => ({
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
-          {css}
         </head>
         <body className="landing-page">
-          <div id="react-mount" dangerouslySetInnerHTML={{__html: body}} />
+          <p id="react-mount" dangerouslySetInnerHTML={{__html: body}} />
           <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
         </body>
       </html>
