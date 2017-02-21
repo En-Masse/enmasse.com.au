@@ -15,7 +15,7 @@ const html = () => ({
     const head = Helmet.rewind()
     let css
     if (process.env.NODE_ENV === 'production') {
-      css = <link rel="stylesheet" type="text/css" href={prefixLink(`./styles.css?t=${BUILD_TIME}`)} />
+      css = <style dangerouslySetInnerHTML={{__html: require('!raw!./public/styles.css')}} />
     }
 
     return (
