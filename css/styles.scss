@@ -1,6 +1,10 @@
 @import "mixins";
 @import "variables";
 
+// Normalize
+
+@import "../node_modules/node.normalize.scss/normalize";
+
 // Base Styles
 
 html {
@@ -21,6 +25,6 @@ h2 {
   @include rem(font-size, 28px);
 }
 
-p {
+p, a {
   @include rem(font-size, 16px);
 }

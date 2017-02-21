@@ -44,7 +44,7 @@ const html = () => ({
           {css}
         </head>
         <body className="landing-page">
-          <p id="react-mount" dangerouslySetInnerHTML={{__html: body}} />
+          <div id="react-mount" dangerouslySetInnerHTML={{__html: body}} />
           <script src={prefixLink(`./bundle.js?t=${BUILD_TIME}`)} />
         </body>
       </html>
