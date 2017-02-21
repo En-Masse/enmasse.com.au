@@ -3,7 +3,6 @@
 
 header {
   color: $white;
-  background-color: $blue;
   padding: 40px;
   @include media("<=tablet") {
     padding: 20px;

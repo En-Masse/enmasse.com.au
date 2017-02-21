@@ -3,11 +3,18 @@ import React from 'react'
 // import {prefixLink} from 'gatsby-helpers'
 // import {config} from 'config'
 import Header from '../components/Header'
+import BackgroundVideo from '../components/BackgroundVideo'
 
 const Template = ({children}) => {
   const post = children.props.route.page.data
+  console.log(post)
+  let video
+  if (post.path === '/') {
+    video = (<BackgroundVideo />)
+  }
   return (
-    <div className="lol">
+    <div>
+      {video}
       <Header post={post} />
       {children}
     </div>
