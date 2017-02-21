@@ -1,34 +1,26 @@
-// Variables
-//––––––––––––––––––––––––––––––––––––––––––––––––––
+@import "mixins";
+@import "variables";
 
-// Colors
+// Base Styles
 
-$white: rgba(255, 255, 255, 1.0);
-$blue: rgba(90, 218, 253, 1.0);
-
-// Typography
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+html {
+  @include rem-baseline;
+  @include media("<=tablet") {
+    @include rem-baseline(125%);
+  }
+}
 body {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: $font-family;
 }
 
-//Grid Variables
-$container-width: 960px !default;
-$container-width-larger-than-mobile: 85% !default;
-$container-width-larger-than-phablet: 80% !default;
-$total-columns: 12 !default;
-$column-width: 100 / $total-columns !default; // calculates individual column width based off of # of columns
-$column-margin: 4% !default; // space between columns
-$breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
+h1 {
+  @include rem(font-size, 32px);
+}
 
-// Mixins
-//––––––––––––––––––––––––––––––––––––––––––––––––––
+h2 {
+  @include rem(font-size, 28px);
+}
 
-@import "../node_modules/skeleton-scss/scss/base/normalize";
-@import "../node_modules/include-media/dist/include-media";
-@import "mixins/flexbox";
-
-// Component Imports
-//––––––––––––––––––––––––––––––––––––––––––––––––––
-
-// @import "components/header";
+p {
+  @include rem(font-size, 16px);
+}
