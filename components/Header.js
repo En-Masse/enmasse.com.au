@@ -9,10 +9,10 @@ class Header extends Component {
     this.state = {
       navOpen: false,
     }
-    this.toggleNav = this.toggleNav.bind(this)
+    this.navToggle = this.navToggle.bind(this)
   }
 
-  toggleNav() {
+  navToggle() {
     const {navOpen} = this.state
     this.setState({
       navOpen: !navOpen,
@@ -30,11 +30,11 @@ class Header extends Component {
     }
     return (
       <header>
-        <button onClick={this.toggleNav}>Hamburger</button>
+        <Link to={prefixLink('/')}>
+          <h1>En Masse</h1>
+        </Link>
+        <button className={`navToggle active-${navOpen}`} onClick={this.navToggle}><span /></button>
         <div className={`navigation navopen-${navOpen}`}>
-          <Link to={prefixLink('/')}>
-            <h1>En Masse</h1>
-          </Link>
           <Link to={prefixLink('/about/')}>
             About
           </Link>

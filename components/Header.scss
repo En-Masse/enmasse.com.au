@@ -12,6 +12,19 @@ header {
     color: $white;
     text-decoration: none;
     text-transform: uppercase;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+  }
+  h1 {
+    margin: 0;
+    text-indent: -9999px;
+    width: 165px;
+    height: 30px;
+    display: block;
+  }
+  .navToggle {
+    display: none;
   }
   .navigation {
     @include flexbox();
@@ -23,13 +36,6 @@ header {
       font-size: 13px;
       padding: 10px 0 0 0;
       vertical-align: middle;
-      h1 {
-        margin: 0;
-        text-indent: -9999px;
-        width: 165px;
-        height: 30px;
-        display: block;
-      }
       &:last-child {
         margin-bottom: 4px;
         padding-top: 8px;
@@ -42,8 +48,62 @@ header {
     }
   }
   @include media("<=tablet") {
+    .navToggle {
+      margin-top: 15px;
+      float: right;
+      display: block;
+      position: relative;
+      padding: 0px 35px 5px 0px;
+      cursor: pointer;
+      border-radius: 1px;
+      height: 5px;
+      width: 35px;
+      background: white;
+      content: '';
+      border: 0;
+      transition: all 100ms ease-in-out;
+      outline: none;
+      span:before, span:after {
+        cursor: pointer;
+        border-radius: 1px;
+        height: 5px;
+        width: 35px;
+        background: white;
+        position: absolute;
+        display: block;
+        content: '';
+        transition: all 200ms ease-in-out;
+        outline: none;
+      }
+      span:before {
+        top: -10px;
+      }
+      span:after {
+        bottom: -10px;
+      }
+      &.active-true {
+        background-color: transparent;
+      }
+      &.active-true span:before, &.active-true span:after {
+        top: 0;
+      }
+      &.active-true span:before {
+        transform: rotate(45deg);
+      }
+      &.active-true span:after {
+        transform: rotate(-45deg);
+      }
+    }
     .navigation {
       @include flex-direction(column);
+      a {
+        width: 100%;
+      }
+    }
+    .navigation.navopen-false {
+      display: none;
+    }
+    .navigation.navopen-true {
     }
   }
   h2 {
