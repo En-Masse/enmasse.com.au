@@ -1,20 +1,17 @@
 header {
-  padding: 40px;
   color: $white;
+  background-color: $blue;
+  padding: 40px;
+  @include media("<=tablet") {
+    padding: 20px;
+  }
   a {
     color: $white;
     text-decoration: none;
     text-transform: uppercase;
   }
-  @include media("<=tablet") {
-    padding: 20px;
-  }
-  background-color: $blue;
   .navigation {
     @include flexbox();
-    a+h1 {
-
-    }
     a {
       @include flex();
       list-style: none;
@@ -34,7 +31,17 @@ header {
         margin-bottom: 4px;
         padding-top: 8px;
         border: 2px solid $white;
+        &:hover {
+          background-color: $white;
+          color: $blue;
+        }
       }
+    }
+  }
+  @include media("<=phone") {
+    .navigation {
+      background-color: green;
+      @include flex-direction(column);
     }
   }
   h2 {
@@ -53,7 +60,12 @@ header {
     margin-bottom: 40px;
   }
   a.main-link {
-    padding: 8px;
+    padding: 8px 12px;
     border: 2px solid $white;
+    display: inline-block;
+    &:hover {
+      background-color: $white;
+      color: $blue;
+    }
   }
 }

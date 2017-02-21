@@ -13,11 +13,10 @@ const html = () => ({
   render() {
     const {body} = this.props
     const head = Helmet.rewind()
-
-    // let css
-    // if (process.env.NODE_ENV === 'production') {
-    //   css = <style dangerouslySetInnerHTML={{__html: stylesheet}} />
-    // }
+    let css
+    if (process.env.NODE_ENV === 'production') {
+      css = <link rel="stylesheet" type="text/css" href="./styles.css" />
+    }
 
     return (
       <html lang="en">
@@ -30,6 +29,7 @@ const html = () => ({
           />
           {head.title.toComponent()}
           {head.meta.toComponent()}
+          {css}
         </head>
         <body className="landing-page">
           <p id="react-mount" dangerouslySetInnerHTML={{__html: body}} />

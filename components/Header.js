@@ -4,6 +4,12 @@ import {Link} from 'react-router'
 
 const Header = (props) => {
   const {post} = props
+  let button
+  if (post.link) {
+    button = (<Link className="main-link" to={prefixLink(post.link)}>
+      {post.linkText}
+    </Link>)
+  }
   return (
     <header>
       <div className="navigation">
@@ -28,9 +34,7 @@ const Header = (props) => {
       </div>
       <h2>{post.title}</h2>
       <p className="context" dangerouslySetInnerHTML={{__html: post.context}} />
-      <Link className="main-link" to={prefixLink(post.link)}>
-        {post.linkText}
-      </Link>
+      {button}
     </header>
   )
 }
@@ -41,8 +45,8 @@ Header.propTypes = {
     layout: React.PropTypes.string,
     title: React.PropTypes.string,
     body: React.PropTypes.string,
-    context: React.PropTypes.string,
-    link: React.PropTypes.string,
+    context: React.PropTypes.static,
+    link: React.PropTypes.static,
     linkText: React.PropTypes.string,
   }).isRequired,
 }
