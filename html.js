@@ -4,6 +4,15 @@ import {prefixLink} from 'gatsby-helpers'
 
 const BUILD_TIME = new Date().getTime()
 
+let stylesStr
+if (process.env.NODE_ENV === 'production') {
+  try {
+    stylesStr = require('!raw-loader!./public/styles.css')
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 const html = () => ({
   displayName: 'HTML',
   propTypes: {
@@ -14,7 +23,12 @@ const html = () => ({
     const head = Helmet.rewind()
     let css
     if (process.env.NODE_ENV === 'production') {
-      css = <style dangerouslySetInnerHTML={{__html: require('!raw!./public/styles.css')}} />
+      css = (
+        <style
+          id="gatsby-inlined-css"
+          dangerouslySetInnerHTML={{__html: stylesStr}}
+        />
+      )
     }
     return (
       <html lang="en">
