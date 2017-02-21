@@ -1,3 +1,6 @@
+@import '../css/variables';
+@import '../css/mixins';
+
 header {
   color: $white;
   background-color: $blue;
@@ -38,9 +41,8 @@ header {
       }
     }
   }
-  @include media("<=phone") {
+  @include media("<=tablet") {
     .navigation {
-      background-color: green;
       @include flex-direction(column);
     }
   }

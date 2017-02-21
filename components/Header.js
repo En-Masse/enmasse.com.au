@@ -1,9 +1,9 @@
 import React from 'react'
 import {prefixLink} from 'gatsby-helpers'
 import {Link} from 'react-router'
+import './Header.scss'
 
-const Header = (props) => {
-  const {post} = props
+const Header = ({post}) => {
   let button
   if (post.link) {
     button = (<Link className="main-link" to={prefixLink(post.link)}>
@@ -12,6 +12,7 @@ const Header = (props) => {
   }
   return (
     <header>
+      <button>Hamburger</button>
       <div className="navigation">
         <Link to={prefixLink('/')}>
           <h1>En Masse</h1>
@@ -50,5 +51,9 @@ Header.propTypes = {
     linkText: React.PropTypes.string,
   }).isRequired,
 }
+
+// Header.state = {
+//   showNav: true,
+// }
 
 export default Header
