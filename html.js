@@ -13,10 +13,7 @@ const html = () => ({
   render() {
     const {body} = this.props
     const head = Helmet.rewind()
-    let css
-    if (process.env.NODE_ENV === 'production') {
-      css = <style dangerouslySetInnerHTML={{__html: require('!raw!./styles.css')}} />
-    }
+    const css = <style dangerouslySetInnerHTML={{__html: require('!raw!./public/styles.css')}} />
 
     return (
       <html lang="en">
