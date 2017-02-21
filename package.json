@@ -14,13 +14,14 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.14.1",
     "node-sass": "^3.11.1",
+    "node.normalize.scss": "^3.0.3",
     "react-helmet": "^3.1.0",
     "react-responsive-grid": "^0.3.3",
     "react-typography": "^0.14.0",
     "recursive-readdir": "^2.1.0",
     "rimraf": "^2.5.4",
     "safe-access": "^0.1.0",
-    "skeleton-scss": "git+https://github.com/WhatsNewSaes/Skeleton-Sass.git",
+    "sass-rem": "^1.2.3",
     "sync-request": "^3.0.1",
     "typography": "^0.14.0",
     "typography-theme-wordpress-2016": "^0.14.0",
@@ -55,7 +56,8 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "gatsby develop",
-    "build": "gatsby build && node ampify.js",
+    "build": "gatsby build",
+    "amplify": "node ampify.js",
     "deploy": "gatsby build --prefix-links && gh-pages -d public"
   }
 }

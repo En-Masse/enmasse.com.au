@@ -13,11 +13,10 @@ const MarkdownWrapper = (props) => {
     case 'page':
       return (
         <div className="markdown">
-          <Header pages={props.route.pages} />
+          <Header post={post} />
           <Helmet
             title={`${post.title} | ${config.blogTitle}`}
           />
-          <h1 style={{marginTop: 0}}>{post.title}</h1>
           <div dangerouslySetInnerHTML={{__html: post.body}} />
         </div>
       )
