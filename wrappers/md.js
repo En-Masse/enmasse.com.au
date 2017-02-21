@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import {config} from 'config'
 import ReadNext from '../components/ReadNext'
-import Header from '../components/Header'
 
 import '../css/styles.scss'
 
@@ -13,7 +12,6 @@ const MarkdownWrapper = (props) => {
     case 'page':
       return (
         <div className="markdown">
-          <Header post={post} />
           <Helmet
             title={`${post.title} | ${config.blogTitle}`}
           />

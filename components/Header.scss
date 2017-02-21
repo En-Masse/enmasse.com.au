@@ -13,9 +13,9 @@ header {
     text-decoration: none;
     text-transform: uppercase;
     display: inline-block;
-    height: 28px;
     img.logo {
       width: 166px;
+      height: 28px;
     }
   }
   .navToggle {
@@ -32,6 +32,7 @@ header {
       letter-spacing: 2px;
       padding: 10px 0 0 0;
       vertical-align: middle;
+      height: 28px;
       &:last-child {
         padding-top: 8px;
         border: 2px solid $white;
@@ -110,6 +111,7 @@ header {
     }
   }
   h2 {
+    margin-top: 50px;
     &:before {
       content: " ";
       display: block;

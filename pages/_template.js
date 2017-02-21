@@ -1,51 +1,30 @@
 import React from 'react'
-import {Link} from 'react-router'
-import {Container} from 'react-responsive-grid'
-import {prefixLink} from 'gatsby-helpers'
-import {config} from 'config'
+// import {Link} from 'react-router'
+// import {prefixLink} from 'gatsby-helpers'
+// import {config} from 'config'
 import Header from '../components/Header'
 
-class Template extends React.Component {
-  render() {
-    const {location, children} = this.props
-    // let header
-    // if (location.pathname === prefixLink('/')) {
-    //   header = (
-    //     <h1
-    //       style={{
-    //         ...scale(1.5),
-    //         marginBottom: rhythm(1.5),
-    //         marginTop: 0,
-    //       }}
-    //     >
-    //       <Link
-    //         style={{
-    //           boxShadow: 'none',
-    //           textDecoration: 'none',
-    //           color: 'inherit',
-    //         }} to={prefixLink('/')}
-    //       >
-    //         {config.blogTitle}
-    //       </Link>
-    //     </h1>
-    //   )
-    // } else {
-      // header = (
-      //   <Header></Header>
-      // )
-    // }
-    return (
-      <Container>
-        {children}
-      </Container>
-    )
-  }
+const Template = ({children}) => {
+  const post = children.props.route.page.data
+  return (
+    <div className="lol">
+      <Header post={post} />
+      {children}
+    </div>
+  )
 }
 
 Template.propTypes = {
-  children: React.PropTypes.any,
-  location: React.PropTypes.object,
-  route: React.PropTypes.object,
+  children: React.PropTypes.shape({
+    props: React.PropTypes.Object,
+  }),
+}
+
+Template.defaultProps = {
+  children: {
+    props: {
+    },
+  },
 }
 
 export default Template
