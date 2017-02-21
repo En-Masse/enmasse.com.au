@@ -15,7 +15,7 @@ const html = () => ({
     const head = Helmet.rewind()
     let css
     if (process.env.NODE_ENV === 'production') {
-      css = <link rel="stylesheet" type="text/css" href="./styles.css" />
+      css = <link rel="stylesheet" type="text/css" href={prefixLink(`./styles.css?t=${BUILD_TIME}`)} />
     }
 
     return (
@@ -33,7 +33,7 @@ const html = () => ({
         </head>
         <body className="landing-page">
           <p id="react-mount" dangerouslySetInnerHTML={{__html: body}} />
-          <script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
+          <script src={prefixLink(`./bundle.js?t=${BUILD_TIME}`)} />
         </body>
       </html>
     )
