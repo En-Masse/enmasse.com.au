@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import {prefixLink} from 'gatsby-helpers'
-// import stylesheet from './public/styles.css'
 
 const BUILD_TIME = new Date().getTime()
 
@@ -13,8 +12,10 @@ const html = () => ({
   render() {
     const {body} = this.props
     const head = Helmet.rewind()
-    const css = <style dangerouslySetInnerHTML={{__html: require('!raw!./public/styles.css')}} />
-
+    let css
+    if (process.env.NODE_ENV === 'production') {
+      css = <style dangerouslySetInnerHTML={{__html: require('!raw!./public/styles.css')}} />
+    }
     return (
       <html lang="en">
         <head>
