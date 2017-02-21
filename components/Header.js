@@ -31,7 +31,7 @@ class Header extends Component {
     return (
       <header>
         <Link to={prefixLink('/')}>
-          <h1>En Masse</h1>
+          <img className="logo" src={prefixLink('/static/img/enmasse-logo.png')} alt={'En Masse'} />
         </Link>
         <button className={`navToggle active-${navOpen}`} onClick={this.navToggle}><span /></button>
         <div className={`navigation navopen-${navOpen}`}>
