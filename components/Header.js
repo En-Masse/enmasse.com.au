@@ -29,7 +29,7 @@ class Header extends Component {
       </Link>)
     }
     let headerClass
-    if (post.path.slice(1)) {
+    if (post.path.slice(1) && post.path.slice(1) !== '404') {
       headerClass = post.path.slice(1)
     } else {
       headerClass = 'index'
