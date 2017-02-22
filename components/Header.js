@@ -28,6 +28,10 @@ class Header extends Component {
         {post.linkText}
       </Link>)
     }
+    let hasContext
+    if (!post.context) {
+      hasContext = 'no-context'
+    }
     return (
       <header>
         <Link to={prefixLink('/')}>
@@ -51,7 +55,7 @@ class Header extends Component {
             Enquiries
           </Link>
         </div>
-        <h1>{post.title}</h1>
+        <h1 className={hasContext}>{post.title}</h1>
         <p className="context" dangerouslySetInnerHTML={{__html: post.context}} />
         {button}
       </header>
