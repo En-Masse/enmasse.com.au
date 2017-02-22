@@ -51,6 +51,9 @@ header {
         }
       }
     }
+    @include media(">=desktop") {
+      width: calc(80% - 216px);
+    }
   }
   @include media("<=tablet") {
     .navToggle {
