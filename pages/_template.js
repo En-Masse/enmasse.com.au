@@ -1,7 +1,4 @@
 import React from 'react'
-// import {Link} from 'react-router'
-// import {prefixLink} from 'gatsby-helpers'
-// import {config} from 'config'
 import Header from '../components/Header'
 import BackgroundVideo from '../components/BackgroundVideo'
 
@@ -11,8 +8,14 @@ const Template = ({children}) => {
   if (post.path === '/') {
     video = (<BackgroundVideo />)
   }
+  let pageClass
+  if (post.path.slice(1) && post.path.slice(1) !== '404') {
+    pageClass = post.path.slice(1)
+  } else {
+    pageClass = 'index'
+  }
   return (
-    <div>
+    <div className={pageClass}>
       {video}
       <Header post={post} />
       {children}

@@ -28,14 +28,8 @@ class Header extends Component {
         {post.linkText}
       </Link>)
     }
-    let headerClass
-    if (post.path.slice(1) && post.path.slice(1) !== '404') {
-      headerClass = post.path.slice(1)
-    } else {
-      headerClass = 'index'
-    }
     return (
-      <header className={headerClass}>
+      <header>
         <Link to={prefixLink('/')}>
           <img className="logo" src={prefixLink('/static/img/enmasse-logo.png')} alt={'En Masse'} />
         </Link>
