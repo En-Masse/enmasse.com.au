@@ -7,7 +7,6 @@ import BackgroundVideo from '../components/BackgroundVideo'
 
 const Template = ({children}) => {
   const post = children.props.route.page.data
-  console.log(post)
   let video
   if (post.path === '/') {
     video = (<BackgroundVideo />)

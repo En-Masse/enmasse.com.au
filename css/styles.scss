@@ -7,6 +7,10 @@
 
 // Base Styles
 
+* {
+  box-sizing: border-box
+}
+
 html {
   @include rem-baseline;
   @include media("<=tablet") {

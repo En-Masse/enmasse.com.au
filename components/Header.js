@@ -51,7 +51,7 @@ class Header extends Component {
             Enquiries
           </Link>
         </div>
-        <h2>{post.title}</h2>
+        <h1>{post.title}</h1>
         <p className="context" dangerouslySetInnerHTML={{__html: post.context}} />
         {button}
       </header>
